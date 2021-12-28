@@ -58,4 +58,4 @@ getData('');
 
 $(function(){
     $('#content-table').tablesorter(); 
-  });
+});

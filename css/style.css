@@ -7,7 +7,7 @@ thead {
     background: gray;
     color: #FFF;
 }
-tbody:hover {
+tr:hover {
     background-color: gray;
 }
 td {
