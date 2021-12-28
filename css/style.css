@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+tbody:first-child {
+    background: gray;
+    color: #FFF;
+}
+tbody:hover {
+    background-color: gray;
+}
+td {
+    border: 1px solid black;
+}

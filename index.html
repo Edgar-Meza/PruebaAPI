@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Prueba</title>
+</head>
+<body>
+    <header>
+        <div>
+            <span>API: https://api.datos.gob.mx/v1/calidadAire</span>
+        </div>
+    </header>
+    <main>
+        <h1>Tablas de datos calidad de Aire</h1>
+        <input type="text" id="search" placeholder="Buscar entidad">
+        <button id="btn-search" onclick="buscar()">Buscar</button>
+        <table id="content-table">
+        </table>
+    </main>
+</body>
+</html>
