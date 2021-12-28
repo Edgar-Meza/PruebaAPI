@@ -3,7 +3,7 @@ table {
     height: auto;
     text-align: center;
 }
-tbody:first-child {
+thead {
     background: gray;
     color: #FFF;
 }

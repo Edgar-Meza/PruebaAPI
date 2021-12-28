@@ -5,19 +5,20 @@ getData = (ente) => {
         const datos = data.results;
         console.log(datos);
         var table = document.getElementById("content-table");
-        table.innerHTML = "<tr>\
+        table.innerHTML = "<thead><tr>\
         <th>id</th>\
-        <th>entidad</th>\
-        <th>Latitud</th>\
-        <th>Longitud</th>\
-        <th>Fecha de calculo</th>\
-        <th>Escala</th>\
-        <th>Valor</th>\
-    </tr>"
+        <th>entidad <i class='bi bi-sort-alpha-down'></i></th>\
+        <th>Latitud <i class='bi bi-sort-alpha-down'></i></th>\
+        <th>Longitud <i class='bi bi-sort-alpha-down'></i></th>\
+        <th>Fecha de calculo <i class='bi bi-sort-alpha-down'></i></th>\
+        <th>Escala <i class='bi bi-sort-alpha-down'></i></th>\
+        <th>Valor <i class='bi bi-sort-alpha-down'></i></th>\
+    </tr></thead>"
         console.log(ente);
+        var rows;
         for ( var i in datos) {
             if(ente == '') {
-                table.innerHTML = table.innerHTML + "<tr>\
+                var rowss =  "<tr>\
                                                     <td>"+datos[i]['_id']+"</td>\
                                                     <td>"+datos[i].stations[0].name+"</td>\
                                                     <td>"+datos[i].stations[0].location["lat"]+"</td>\
@@ -26,9 +27,10 @@ getData = (ente) => {
                                                     <td>"+datos[i].stations[0].indexes[0].scale+"</td>\
                                                     <td>"+datos[i].stations[0].indexes[0].value+"</td>\
                                                 </tr>";
+                rows = rows +rowss;
             }else if (ente != '') {
                 if(datos[i].stations[0].name == ente) {
-                    table.innerHTML = table.innerHTML + "<tr>\
+                    var rowss = "<tr>\
                                                         <td>"+datos[i]['_id']+"</td>\
                                                         <td>"+datos[i].stations[0].name+"</td>\
                                                         <td>"+datos[i].stations[0].location["lat"]+"</td>\
@@ -37,9 +39,11 @@ getData = (ente) => {
                                                         <td>"+datos[i].stations[0].indexes[0].scale+"</td>\
                                                         <td>"+datos[i].stations[0].indexes[0].value+"</td>\
                                                     </tr>";
+                    rows = rows +rowss;
                 }
             }
         }
+        table.innerHTML = table.innerHTML +"<tbody>"+rows+"</tbody>";
     })
 }
 buscar = () =>{
@@ -52,3 +56,6 @@ buscar = () =>{
 
 getData('');
 
+$(function(){
+    $('#content-table').tablesorter(); 
+  });
